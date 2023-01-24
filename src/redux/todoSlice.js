@@ -8,10 +8,10 @@ const todoSlice = createSlice({
     reducers: {
         addTodo(state, action){
             state.todos.push({
-                id: Date.now(),
+                id: crypto.randomUUID(),
                 title: action.payload,
                 completed: false,
-                visibility: true,
+                visibility: 'true',
             })
             localStorage.setItem('todos', JSON.stringify(state.todos));
         },
@@ -45,13 +45,13 @@ const todoSlice = createSlice({
         filtering(state,action){
             console.log(action.payload);
                 if(action.payload === 'all'){
-                    state.todos = state.todos.map(todo => console.log(todo.visibility))
+                    state.todos[1].visibility = !state.todos[1].visibility
                 }
                 if(action.payload === 'todo'){
-                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = false : todo.visibility = true)
+                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = 'false' : todo.visibility = 'true')
                 }
                 if(action.payload === 'done'){
-                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = true : todo.visibility = false)
+                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = 'true' : todo.visibility = 'false')
                 }
         }
       }
