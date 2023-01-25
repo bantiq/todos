@@ -4,14 +4,14 @@ const todoSlice = createSlice({
     name: 'todos',
     initialState: {
         todos: JSON.parse(localStorage.getItem('todos')) || [],
+        filter : 'all'
     },
     reducers: {
         addTodo(state, action){
             state.todos.push({
-                id: crypto.randomUUID(),
+                id: new Date().valueOf(),
                 title: action.payload,
                 completed: false,
-                visibility: 'true',
             })
             localStorage.setItem('todos', JSON.stringify(state.todos));
         },
@@ -43,18 +43,15 @@ const todoSlice = createSlice({
             localStorage.setItem('todos', JSON.stringify(state.todos));
         },
         filtering(state,action){
-            console.log(action.payload);
                 if(action.payload === 'all'){
-                    state.todos[1].visibility = !state.todos[1].visibility
+                    state.filter = 'all'
+                }else if(action.payload === 'todo'){
+                    state.filter = 'todo'
+                }else if(action.payload === 'done'){
+                    state.filter = 'done'
                 }
-                if(action.payload === 'todo'){
-                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = 'false' : todo.visibility = 'true')
-                }
-                if(action.payload === 'done'){
-                    state.todos = state.todos.map(todo => todo.completed ? todo.visibility = 'true' : todo.visibility = 'false')
-                }
-        }
-      }
+        },
+    }
 })
 
 export const {addTodo, deleteTodo, toggleCheckboxValue, sorting, filtering} = todoSlice.actions;

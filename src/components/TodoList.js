@@ -9,6 +9,7 @@ import TodoTask from './TodoTask';
 function TodoList(){
     const [inputValue, setInputValue] = useState('')
     const todos = useSelector(state => state.todos.todos)
+    const filter = useSelector(state => state.todos.filter)
     const dispatch = useDispatch();
     
     return (
@@ -31,12 +32,29 @@ function TodoList(){
             <button onClick={() => dispatch(filtering('todo'))}>Todo</button>
             <button onClick={() => dispatch(filtering('done'))}>Done</button>
             <ul>
-                {todos.map((todo) => (
-                    <TodoTask 
-                        key={todo.id}
-                        {...todo}
-                    />
-                ))
+                {
+                    // eslint-disable-next-line
+                    todos.map((todo) => {
+                        if(filter === 'all'){
+                        return (<TodoTask
+                            key={todo.id}
+                            {...todo}
+                            filter={filter}
+                        />)} else if(filter === 'done'){
+                            if(todo.completed){
+                                return (<TodoTask
+                                    key={todo.id}
+                                    {...todo}
+                                    filter={filter}
+                                />)
+                            }} else if(!todo.completed){
+                                return (<TodoTask
+                                    key={todo.id}
+                                    {...todo}
+                                    filter={filter}
+                                />)
+                            }
+                    })
                 }
             </ul>
         </>
