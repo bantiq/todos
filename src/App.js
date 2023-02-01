@@ -4,11 +4,13 @@ import NotFoundPage from "./components/NotFoundPage";
 import Photos from "./components/Photos";
 import TodoList from "./components/TodoList";
 import TodoPage from "./components/TodoPage";
+import './scss/null.scss'
 
 
 function App() {
+
   return (
-    <>
+    <div className="app">
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/todos' element={<TodoList/>}/>
@@ -16,7 +18,7 @@ function App() {
         <Route path='*' element={<NotFoundPage/>}/>
         <Route path="/photos" element = {<Photos />}/>
       </Routes>
-    </>
+    </div>
   );
 }
 

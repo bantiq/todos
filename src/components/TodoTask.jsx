@@ -13,7 +13,10 @@ function TodoTask({title, id, completed}, filter) {
                 <Link to={id + ''}>
                     <span style={{textDecoration: completed ? 'line-through' : 'none'}}>{title}</span>
                 </Link>
-                <button onClick={() => dispatch(deleteTodo(id))}>Delete</button>
+                <button onClick={() => dispatch(deleteTodo(id))}>
+                    <i class="fa-regular fa-trash-can"></i>
+                    Delete
+                </button>
             </li>
     )
 }

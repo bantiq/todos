@@ -1,0 +1,122 @@
+#root{
+    height: 100vh;
+}
+
+.app{
+background: linear-gradient(166deg, rgba(16,185,91,1) 0%, rgba(9,116,121,1) 62%, rgba(0,20,255,1) 100%);
+    height: 100%;
+}
+
+.todo__adding{
+    display: flex;
+    margin: 0 auto;
+    max-width: 410px;
+    justify-content: space-between;
+}
+
+.todo__input{
+    height: 50px;
+    width: 280px;
+
+    border-radius: 5px;
+    border: 2px solid rgb(16,171,185);
+    
+    background: rgb(16,171,185);
+background: linear-gradient(111deg, rgba(16,171,185,1) 0%, rgba(9,55,121,1) 100%, rgba(0,255,181,1) 100%);
+}
+.todo__btn_add{
+    border: 2px rgb(3, 202, 3) solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
+    transition: all 0.5s ease-out;
+        &:hover{
+        background-color: rgb(9, 197, 9);
+        color: white;
+    }
+
+}
+.filter{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+    width: 400px;
+    button{
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 2px solid rgb(1, 165, 1);
+        color: rgb(1, 165, 1);
+        &.active{
+            background: rgb(1, 199, 1);
+            color: white;
+        }
+
+        cursor: pointer;
+    }
+}
+.todo__list{
+    width: 410px;
+    margin: 0 auto;
+    ul{
+        padding: 0;
+        list-style: none;
+        li{ 
+            display: flex;
+            align-items: center;
+            border: 2px solid rgb(16,185,131);
+            border-radius: 5px;
+            padding: 5px;
+
+
+            background: rgb(16,185,131);
+            background: linear-gradient(93deg, rgba(16,185,131,1) 0%, rgba(9,121,108,1) 100%, rgba(0,255,181,1) 100%);
+
+            margin: 10px auto;
+            list-style: none;
+            input{
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+            a{  
+                text-decoration: none;
+                color: black;
+                width: 200px;
+            }
+            button{
+                height: 40px;
+                margin-left: auto;
+                border-radius: 5px;
+                border: 2px solid rgb(245, 86, 86);
+                background: rgb(235, 112, 112);
+                transition: all 0.7s ease-out;
+                &:hover{
+                    background: rgb(255, 61, 61);
+                    color: white;
+                    i{
+                        color: white;
+                    }
+                }
+                i{
+                    margin-right: 5px;
+                    transition: all 0.5s ease-out;
+                }
+                cursor: pointer;
+            }
+        }
+    }
+}
+.home__btn{
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: blue;
+    &:hover{
+        background: blue;
+        color: white;
+    }
+}

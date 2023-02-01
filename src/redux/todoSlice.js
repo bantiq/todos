@@ -12,6 +12,7 @@ const todoSlice = createSlice({
                 id: new Date().valueOf(),
                 title: action.payload,
                 completed: false,
+                edit: false,
             })
             localStorage.setItem('todos', JSON.stringify(state.todos));
         },
@@ -51,9 +52,21 @@ const todoSlice = createSlice({
                     state.filter = 'done'
                 }
         },
+        enableEditTask(state, action){
+            const editedTodo = state.todos.find(todo => todo.id === action.payload)
+            editedTodo.edit = !editedTodo.edit
+            
+            localStorage.setItem('todos', JSON.stringify(state.todos));
+        },
+        editTask(state, action){
+            const editedTodo = state.todos.find(todo => todo.id === action.payload[0])
+            editedTodo.title = action.payload[1]
+            
+            localStorage.setItem('todos', JSON.stringify(state.todos));
+        }
     }
 })
 
-export const {addTodo, deleteTodo, toggleCheckboxValue, sorting, filtering} = todoSlice.actions;
+export const {addTodo, deleteTodo, toggleCheckboxValue, sorting, filtering, enableEditTask, editTask} = todoSlice.actions;
 
 export default todoSlice.reducer;

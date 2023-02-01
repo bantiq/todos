@@ -33,9 +33,9 @@ const Photos = () => {
                 <Link to={'/'} style={{ textDecoration: 'none', color: 'blue' }}>Go Home</Link>
             </Button>
 
-            <Box className="photos__container" style={{ width: 1000, margin: 0, margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Box className="photos__container" style={{ width: 1000, margin: 0 , margin: ' auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <FieldInput onChangeInput={onChangeInput} onClickChangeId={onClickChangeId} photos={photos} />
-                {photos[0].data == false
+                {photos[0].data === false
                     ? <h2>ALBUM MISSING</h2>
                     : <PhotoData photos={photos} addAlbum={addAlbum} />
                 }

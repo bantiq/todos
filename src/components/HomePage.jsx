@@ -6,8 +6,8 @@ function HomePage() {
         <>
         <Link to={'todos'}><button>ToDo</button></Link>
         <Button variant="outlined">
-                <Link to={'photos'} style={{textDecoration: 'none', color: 'blue'}}>Photos</Link>
-            </Button>
+            <Link to={'photos'} style={{textDecoration: 'none', color: 'blue'}}>Photos</Link>
+        </Button>
         </>
     )
 }
