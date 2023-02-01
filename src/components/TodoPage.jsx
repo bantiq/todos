@@ -11,19 +11,24 @@ function TodoPage() {
     
 
     return (
-        <>  
-            <Link to={'/todos'} style={{textDecoration: 'none', color: 'blue'}}>
-                <button className="home__btn">
-                Back
-                </button>
-            </Link>
-            {todo.edit ? 
-                <input type='text' value={todo.title} onChange={(e) => {dispatch(editTask([todo.id, e.target.value]))}}/> :
-                <span>{todo.title}</span>                
-            }
-            <button onClick={() => {dispatch(enableEditTask(todo.id))}}>
-                Edit
-            </button>
+        <> 
+            <div className="edit">
+                <Link to={'/todos'} style={{textDecoration: 'none', color: 'blue'}}>
+                    <button className="home__btn">
+                    Back
+                    </button>
+                </Link>
+                <div className="edit">
+                    {todo.edit ? 
+                        <input type='text' value={todo.title} className='edit-input' onChange={(e) => {dispatch(editTask([todo.id, e.target.value]))}}/> :
+                        <span>{todo.title}</span>                
+                    }
+                    <button className="edit-btn" onClick={() => {dispatch(enableEditTask(todo.id))}}>
+                        <i class="fa-solid fa-pen"></i>
+                        Edit
+                    </button>
+                </div>
+            </div>
         </>
     )
 }
